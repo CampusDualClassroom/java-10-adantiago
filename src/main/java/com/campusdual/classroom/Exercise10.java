@@ -9,18 +9,30 @@ public class Exercise10 {
     // El mensaje a imprimir es → La bola es de color: COLOR_BOLA
     // COLOR_BOLA puede ser → rojo, azul, verde
     public static void main(String[] args) {
-
+        int ctr = 0;
+        while (true) {
+            String color = getBall();
+            System.out.println("Bola: " + color);
+            if (color.equals("azul")) {
+                ++ctr;
+            }
+            if(ctr == 2) {
+                break;
+            }
+        }
     }
 
-    //TODO ↓
-    // Un método que devuelva una cadena de texto con el color de una pelota (en minúscula). Dicho color se escogerá de
-    // manera aleatoria. Se empleará el método randomWithRange(int min, int max) para escoger un número aleatorio, que
-    // lo asociaremos al valor de un color de la siguiente manera:
-    // 1 → rojo
-    // 2 → azul
-    // 3 → verde
     public static String getBall() {
-        return null;
+        switch (randomWithRange(1, 4)) {
+            case 1:
+                return "rojo";
+            case 2:
+                return "azul";
+            case 3:
+                return "verde";
+            default:
+                return "";
+        }
     }
 
     public static int randomWithRange(int min, int max) {
